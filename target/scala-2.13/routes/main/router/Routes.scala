@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:D:/IdeaProjects/play-samples-play-java-hello-world-tutorial/conf/routes
-// @DATE:Mon Mar 01 10:05:49 CET 2021
+// @SOURCE:D:/IdeaProjects/RWS-web-DD-OPER/conf/routes
+// @DATE:Mon Mar 01 12:31:19 CET 2021
 
 package router
 
@@ -43,7 +43,7 @@ class Routes(
     ("""GET""", this.prefix, """controllers.HomeController.index"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """explore""", """controllers.HomeController.explore"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """tutorial""", """controllers.HomeController.tutorial"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """hello""", """controllers.HomeController.hello"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """start""", """controllers.HomeController.start"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:Asset)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -107,18 +107,18 @@ class Routes(
   )
 
   // @LINE:9
-  private[this] lazy val controllers_HomeController_hello3_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("hello")))
+  private[this] lazy val controllers_HomeController_start3_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("start")))
   )
-  private[this] lazy val controllers_HomeController_hello3_invoker = createInvoker(
-    HomeController_1.hello,
+  private[this] lazy val controllers_HomeController_start3_invoker = createInvoker(
+    HomeController_1.start,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.HomeController",
-      "hello",
+      "start",
       Nil,
       "GET",
-      this.prefix + """hello""",
+      this.prefix + """start""",
       """""",
       Seq()
     )
@@ -164,9 +164,9 @@ class Routes(
       }
   
     // @LINE:9
-    case controllers_HomeController_hello3_route(params@_) =>
+    case controllers_HomeController_start3_route(params@_) =>
       call { 
-        controllers_HomeController_hello3_invoker.call(HomeController_1.hello)
+        controllers_HomeController_start3_invoker.call(HomeController_1.start)
       }
   
     // @LINE:13

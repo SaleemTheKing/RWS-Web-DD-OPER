@@ -44,7 +44,8 @@ Seq[Any](_display_(/*2.2*/defining(play.core.PlayVersion.current)/*2.41*/ { vers
   <li><a href="https://stackoverflow.com/questions/tagged/playframework" target="_blank">Stackoverflow</a></li>
   <li><a href="https://lightbend.com/how" target="_blank">Professional support</a></li>
 </ul>
-""")))}))
+""")))}),format.raw/*17.2*/("""
+"""))
       }
     }
   }
@@ -60,11 +61,11 @@ Seq[Any](_display_(/*2.2*/defining(play.core.PlayVersion.current)/*2.41*/ { vers
 
               /*
                   -- GENERATED --
-                  DATE: 2021-03-01T09:54:35.135
-                  SOURCE: D:/IdeaProjects/play-samples-play-java-hello-world-tutorial/app/views/commonSidebar.scala.html
-                  HASH: 35e014d3bb1af046d936754c1beab28a548cb015
-                  MATRIX: 908->1|1004->5|1051->44|1101->57|1128->58|1202->106|1216->112|1257->133|1326->176|1340->182|1383->205|1457->253|1471->259|1515->283|1667->408|1695->415
-                  LINES: 27->1|32->2|32->2|32->2|33->3|35->5|35->5|35->5|36->6|36->6|36->6|37->7|37->7|37->7|41->11|41->11
+                  DATE: 2021-03-01T13:04:31.236
+                  SOURCE: D:/IdeaProjects/RWS-web-DD-OPER/app/views/commonSidebar.scala.html
+                  HASH: 25b11922fa57e1e6dc6c2e16b0a5bde940db04c7
+                  MATRIX: 908->1|1004->5|1051->44|1101->57|1128->58|1202->106|1216->112|1257->133|1326->176|1340->182|1383->205|1457->253|1471->259|1515->283|1667->408|1695->415|2165->855
+                  LINES: 27->1|32->2|32->2|32->2|33->3|35->5|35->5|35->5|36->6|36->6|36->6|37->7|37->7|37->7|41->11|41->11|47->17
                   -- GENERATED --
               */
           

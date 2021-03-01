@@ -1,32 +1,66 @@
-@*
- * This template is called from the `index` template. This template
- * handles the rendering of the page header and body tags. It takes
- * two arguments, a `String` for the title of the page and an `Html`
- * object to insert into the body of the page.
- *@
 @(title: String)(content: Html)
 
 <!DOCTYPE html>
 <html lang="en">
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script>
+    $( document ).ready(function() {
+        menuOpen = JSON.parse(localStorage.getItem('isMenuOpen'));
 
-<head>
-    <title>@title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" media="screen" href='@routes.Assets.versioned("stylesheets/main.css")'>
-    <link rel="stylesheet" media="screen" href='@routes.Assets.versioned("stylesheets/prism.css")'>
-    <link rel="shortcut icon" type="image/png" href='@routes.Assets.versioned("images/favicon.png")'>
-    <script src='@routes.Assets.versioned("javascripts/hello.js")' type="text/javascript"></script>
-    <script src='@routes.Assets.versioned("javascripts/prism.js")' type="text/javascript"></script>
-</head>
+        if (menuOpen) {
+            menuBtn.classList.add('open');
+            menu.classList.add('menu-open');
 
-<body>
-    <section id="top">
-        <div class="wrapper">
-            <img class="resize" src="assets/images/play_icon_reverse.svg" alt="logo" />
-            <h1>Play Hello World Web Tutorial</h1>
+            menuItems.forEach(item => {
+                item.classList.add('menu-open__text');
+            });
+        }
+    });
+    </script>
+
+    <head>
+        <title>@title</title>
+        <link rel="shortcut icon" type="image/png" href='@routes.Assets.versioned("images/favicon.png")'>
+        <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/main.css")">
+    </head>
+
+    <div class="header">
+        <div class="burger">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-    </section>
-    @content
-</body>
+        <h1>Rijkswaterstaat DD-OPER</h1>
+    </div>
 
+    <div style="display: flex">
+        <div class="menu">
+            <ul>
+                <li>
+                    <a href="@routes.HomeController.index()">
+                        <img class="menu-icon" src="@routes.Assets.versioned("images/favicon.png")" alt="Grafieken">
+                        <p>Grafieken</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="@routes.HomeController.start()">
+                        <img class="menu-icon" src="@routes.Assets.versioned("images/favicon.png")" alt="Grafieken">
+                        <p>Bookmarks</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="@routes.HomeController.index()">
+                        <img class="menu-icon" src="@routes.Assets.versioned("images/favicon.png")" alt="Grafieken">
+                        <p>Instellingen</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div id="main" class="sidebar-open">
+        @content
+        </div>
+    </div>
+
+    <script src="@routes.Assets.versioned("javascripts/main.js")"></script>
 </html>
