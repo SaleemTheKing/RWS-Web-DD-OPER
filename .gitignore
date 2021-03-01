@@ -1,0 +1,10 @@
+# IDE cache files
+
+/.idea
+
+
+# Local files
+
+/test
+/conf/application.conf
+
