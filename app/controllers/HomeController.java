@@ -27,8 +27,8 @@ public class HomeController extends Controller {
         return ok(views.html.tutorial.render());
     }
 
-    public Result hello() {
-        return ok(views.html.hello.render());
+    public Result start() {
+        return ok(views.html.start.render());
     }
 
 }

@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:D:/IdeaProjects/play-samples-play-java-hello-world-tutorial/conf/routes
-// @DATE:Mon Mar 01 10:05:49 CET 2021
+// @SOURCE:D:/IdeaProjects/RWS-web-DD-OPER/conf/routes
+// @DATE:Mon Mar 01 12:31:19 CET 2021
 
 package controllers;
 

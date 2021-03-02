@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:D:/IdeaProjects/play-samples-play-java-hello-world-tutorial/conf/routes
-// @DATE:Mon Mar 01 10:05:49 CET 2021
+// @SOURCE:D:/IdeaProjects/RWS-web-DD-OPER/conf/routes
+// @DATE:Mon Mar 01 12:31:19 CET 2021
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -18,16 +18,6 @@ package controllers.javascript {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
-  
-    // @LINE:9
-    def hello: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.hello",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "hello"})
-        }
-      """
-    )
   
     // @LINE:6
     def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
@@ -55,6 +45,16 @@ package controllers.javascript {
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "explore"})
+        }
+      """
+    )
+  
+    // @LINE:9
+    def start: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.start",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "start"})
         }
       """
     )
