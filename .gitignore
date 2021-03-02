@@ -7,5 +7,5 @@
 
 /test
 /conf/application.conf
-/logs
-
+/logs/
+/target
