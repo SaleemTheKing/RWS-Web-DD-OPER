@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:D:/IdeaProjects/RWS-web-DD-OPER/conf/routes
-// @DATE:Mon Mar 01 12:31:19 CET 2021
+// @DATE:Tue Mar 02 13:42:46 CET 2021
 
 
 package router {

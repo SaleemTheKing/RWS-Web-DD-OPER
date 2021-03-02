@@ -13,6 +13,10 @@ body {
     width: 75%;
 }
 
+.container {
+    display: flex;
+}
+
 .header {
     font-family: Arial, sans-serif;
     background: #154273;
