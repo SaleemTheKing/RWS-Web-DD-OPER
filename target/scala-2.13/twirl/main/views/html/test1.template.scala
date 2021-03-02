@@ -21,7 +21,7 @@ import play.data._
 import play.core.j.PlayFormsMagicForJava._
 import scala.jdk.CollectionConverters._
 
-object start extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template0[play.twirl.api.HtmlFormat.Appendable] {
+object test1 extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template0[play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
   def apply():play.twirl.api.HtmlFormat.Appendable = {
@@ -29,9 +29,9 @@ object start extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.Html
       {
 
 
-Seq[Any](_display_(/*1.2*/main("Start")/*1.15*/ {_display_(Seq[Any](format.raw/*1.17*/("""
+Seq[Any](_display_(/*1.2*/main("Pagina 1")/*1.18*/ {_display_(Seq[Any](format.raw/*1.20*/("""
     """),format.raw/*2.5*/("""<div>
-        <h1>start pagina</h1>
+        <h1>pagina 1</h1>
     </div>
 
 """)))}),format.raw/*6.2*/("""
@@ -51,10 +51,10 @@ Seq[Any](_display_(/*1.2*/main("Start")/*1.15*/ {_display_(Seq[Any](format.raw/*
 
               /*
                   -- GENERATED --
-                  DATE: 2021-03-02T13:42:46.236
-                  SOURCE: D:/IdeaProjects/RWS-web-DD-OPER/app/views/start.scala.html
-                  HASH: 19da16a55f4634cb052c604a81765ba97fdc5f72
-                  MATRIX: 989->1|1010->14|1049->16|1081->22|1163->75
+                  DATE: 2021-03-02T13:43:44.933
+                  SOURCE: D:/IdeaProjects/RWS-web-DD-OPER/app/views/test1.scala.html
+                  HASH: 99c64e394d6efc045fa5973cdda31190a43bc27e
+                  MATRIX: 989->1|1013->17|1052->19|1084->25|1162->74
                   LINES: 32->1|32->1|32->1|33->2|37->6
                   -- GENERATED --
               */

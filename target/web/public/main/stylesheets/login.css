@@ -1,0 +1,29 @@
+.container {
+    background: #F3F3F3;
+    padding: 0;
+    height: 300px;
+    width:400px;
+    border-radius: 20px;
+    display: block;
+    margin: 12.5% auto auto;
+}
+
+.input {
+    display: block;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 5px auto;
+}
+
+.buttons {
+    margin-top: 3em;
+    justify-content: space-evenly;
+    display: flex;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
