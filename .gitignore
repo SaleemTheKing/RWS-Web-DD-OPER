@@ -8,4 +8,5 @@
 /test
 /conf/application.conf
 /logs/
-/target
+target/scala-2.13
+target/streams
