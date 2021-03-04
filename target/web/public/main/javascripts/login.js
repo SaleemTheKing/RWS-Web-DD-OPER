@@ -20,3 +20,32 @@ function loading() {
     spinner.classList.add('is-active');
 }
 
+function login() {
+    let email = inputEmail.value;
+    let password = inputPassword.value;
+
+    if (email !== "" && password !== "") {
+        loading();
+
+        let credentials = {
+            "email": email,
+            "password": password
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "/register",
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(credentials),
+            error: function (e) {
+                if (e.status === 403) {
+                    // window.location.reload();
+                    console.log("Status was 403: Reloading...");
+                }
+            }
+        })
+    }
+}
+
+
