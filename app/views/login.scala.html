@@ -5,6 +5,13 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 <html lang="en">
+    <script>
+        let email = localStorage.getItem('email');
+        if (email !== "" && email !== undefined) {
+            window.location.href = '/start';
+        }
+    </script>
+
     <head>
         <title>Login</title>
     </head>
