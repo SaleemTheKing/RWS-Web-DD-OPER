@@ -12,3 +12,5 @@ target/scala-2.13
 target/streams
 /conf/hibernate.cfg.xml
 logs/application.log
+target/global-logging
+project/target/streams
