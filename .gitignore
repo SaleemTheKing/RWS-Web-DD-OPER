@@ -10,3 +10,4 @@
 /logs/
 target/scala-2.13
 target/streams
+/conf/hibernate.cfg.xml

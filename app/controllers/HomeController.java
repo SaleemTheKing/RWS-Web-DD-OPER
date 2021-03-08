@@ -10,6 +10,10 @@ import play.mvc.Result;
 import saleem.orm.utils.HibernateUtil;
 
 import javax.persistence.EntityManager;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 public class HomeController extends Controller {
 
@@ -17,8 +21,11 @@ public class HomeController extends Controller {
         return ok(views.html.login.render());
     }
 
-    public Result start() {
+    public Result register() {
+        return ok(views.html.register.render());
+    }
 
+    public Result start() {
         return ok(views.html.start.render());
     }
 
@@ -30,33 +37,77 @@ public class HomeController extends Controller {
     public Result Register(Http.Request request) {
 
         JsonNode node = request.body().asJson();
-        String email =  node.get("email").textValue();
+        String email = node.get("email").textValue();
         String password = node.get("password").textValue();
-//        // FIXME: We are not checking if the email already exists.
+        String firstname = node.get("firstname").textValue();
+        String lastname = node.get("lastname").textValue();
+
+        String hashedPassword = HashPassword(password);
+
         SessionFactory sessionFactory = HibernateUtil.getSession();
         Session session = sessionFactory.getCurrentSession();
         EntityManager em = sessionFactory.createEntityManager();
         em.getTransaction().begin();
-        Gebruiker gebruiker = new Gebruiker(email, password);
-        session.beginTransaction();
-        session.save(gebruiker);
-        session.getTransaction().commit();
-        session.close();
-        return ok(views.html.login.render());
+
+        List<Gebruiker> g = em.createQuery("select g from Gebruiker g where email = :email", Gebruiker.class)
+                .setParameter("email", email)
+                .getResultList();
+
+        if (g.size() > 0) {
+            return badRequest("Email is already in use.");
+        } else {
+            Gebruiker gebruiker = new Gebruiker(firstname, lastname, email, hashedPassword);
+            session.beginTransaction();
+            session.save(gebruiker);
+            session.getTransaction().commit();
+            session.close();
+            return ok();
+        }
     }
 
+    public Result Login(Http.Request request) {
+        JsonNode node = request.body().asJson();
+        String bodyPassword = node.get("password").textValue();
+        String email = node.get("email").textValue();
+        String hash = HashPassword(bodyPassword);
 
-    public Result tryLogin(String email, String password) {
-        SessionFactory session = HibernateUtil.getSession();
-        EntityManager em = session.createEntityManager();
+        SessionFactory sessionFactory = HibernateUtil.getSession();
+        EntityManager em = sessionFactory.createEntityManager();
         em.getTransaction().begin();
 
-        Gebruiker user = (Gebruiker) em.createQuery("from Gebruiker g where g.email = :email and g.password = :password")
+        String userPassword = em.createQuery("select password from Gebruiker g where email = :email", String.class)
                 .setParameter("email", email)
-                .setParameter("password", password)
                 .getSingleResult();
-        if (user != null) return ok(views.html.start.render());
-        else return badRequest("Error wrong credentials");
 
+        if (userPassword.equals(hash)) {
+            return ok();
+        }
+        else {
+            return forbidden();
+        }
     }
+
+    public static String HashPassword(String password) {
+
+        String hashedPassword = null;
+
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-512");
+            md.update(password.getBytes(StandardCharsets.UTF_8));
+            byte[] bytes = md.digest();
+
+            StringBuilder sb = new StringBuilder();
+            for (byte aByte : bytes) {
+                sb.append(Integer.toString((aByte & 0xff) + 0x100, 16).substring(1));
+            }
+
+            hashedPassword = sb.toString();
+        } catch (NoSuchAlgorithmException e) {
+            System.out.println("ERROR: " + e);
+            e.printStackTrace();
+        }
+        return hashedPassword;
+    }
+
+
 }
