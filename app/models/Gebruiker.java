@@ -8,8 +8,12 @@ import javax.persistence.Id;
 @Entity
 public class Gebruiker {
 
-    public Gebruiker() {}
-    public Gebruiker(String email, String password) {
+    public Gebruiker() {
+    }
+
+    public Gebruiker(String firstname, String lastname, String email, String password) {
+        this.setFirstname(firstname);
+        this.setLastname(lastname);
         this.setEmail(email);
         this.setPassword(password);
     }
@@ -21,7 +25,24 @@ public class Gebruiker {
 
     private String email;
     private String password;
+    private String firstname;
+    private String lastname;
 
+    public String getFirstname() {
+        return this.firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return this.lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
 
     public String getEmail() {
         return this.email;

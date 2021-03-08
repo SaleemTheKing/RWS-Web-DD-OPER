@@ -4,9 +4,11 @@
 
 # An example controller showing a sample home page
 GET     /                           controllers.HomeController.login
+GET     /register                   controllers.HomeController.register
 GET     /start                      controllers.HomeController.start
 GET     /test                       controllers.HomeController.test
 
+POST    /login                      controllers.HomeController.Login(request: Request)
 POST    /register                   controllers.HomeController.Register(request: Request)
 
 # Map static resources from the /public folder to the /assets URL path

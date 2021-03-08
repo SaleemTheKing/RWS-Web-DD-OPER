@@ -10,6 +10,16 @@
     </head>
 
     <body>
+        <div hidden class="error" id="err_cred">
+            <p>
+            ERROR: Email of wachtwoord bestaat niet.
+            </p>
+        </div>
+        <div hidden class="error" id="err_email_pattern">
+            <p>
+            ERROR: Voer een geldig email adres in.
+            </p>
+        </div>
         <div class="container">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label input">
                 <input class="mdl-textfield__input" type="email" id="input_email">
@@ -33,6 +43,9 @@
                 onclick="window.location.href = '@routes.HomeController.start()'">Overslaan</button>
                 <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--yellow"
                 onclick="login()">Aanmelden</button>
+            </div>
+            <div class="center">
+                <p>Nog geen account? <a class="link" href="@routes.HomeController.register()">Registreer hier</a></p>
             </div>
         </div>
     </body>
