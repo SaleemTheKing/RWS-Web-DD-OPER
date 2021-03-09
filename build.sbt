@@ -9,9 +9,9 @@ scalaVersion := "2.13.4"
 
 libraryDependencies ++= Seq(
   guice,
+  evolutions,
   javaJpa,
   javaJdbc,
-  evolutions,
   "org.postgresql" % "postgresql" % "42.2.5",
   "org.hibernate" % "hibernate-core" % "5.4.9.Final"
 )
