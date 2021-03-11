@@ -1,6 +1,6 @@
 -- !Ups
 
-create table if not exists Gebruiker (
+create table if not exists UserProfile (
   id bigint primary key,
   email varchar,
   password varchar,

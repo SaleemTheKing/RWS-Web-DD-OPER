@@ -1,7 +1,7 @@
 package controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import models.Gebruiker;
+import models.UserProfile;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import play.mvc.Controller;
@@ -49,16 +49,16 @@ public class HomeController extends Controller {
         EntityManager em = sessionFactory.createEntityManager();
         em.getTransaction().begin();
 
-        List<Gebruiker> g = em.createQuery("select g from Gebruiker g where email = :email", Gebruiker.class)
+        List<UserProfile> g = em.createQuery("select g from UserProfile g where email = :email", UserProfile.class)
                 .setParameter("email", email)
                 .getResultList();
 
         if (g.size() > 0) {
             return badRequest("Email is already in use.");
         } else {
-            Gebruiker gebruiker = new Gebruiker(firstname, lastname, email, hashedPassword);
+            UserProfile userProfile = new UserProfile(firstname, lastname, email, hashedPassword);
             session.beginTransaction();
-            session.save(gebruiker);
+            session.save(userProfile);
             session.getTransaction().commit();
             session.close();
             return ok();
@@ -75,14 +75,13 @@ public class HomeController extends Controller {
         EntityManager em = sessionFactory.createEntityManager();
         em.getTransaction().begin();
 
-        String userPassword = em.createQuery("select password from Gebruiker g where email = :email", String.class)
+        String userPassword = em.createQuery("select password from UserProfile g where email = :email", String.class)
                 .setParameter("email", email)
                 .getSingleResult();
 
         if (userPassword.equals(hash)) {
             return ok();
-        }
-        else {
+        } else {
             return forbidden();
         }
     }

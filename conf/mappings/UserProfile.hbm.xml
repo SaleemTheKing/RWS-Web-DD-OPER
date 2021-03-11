@@ -4,7 +4,7 @@
         "https://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="models">
-    <class name="Gebruiker" table="gebruiker">
+    <class name="UserProfile" table="UserProfile">
         <id name="id" type="long" column="id">
             <generator class="native"/>
         </id>

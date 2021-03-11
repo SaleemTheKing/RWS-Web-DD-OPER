@@ -11,6 +11,13 @@ let keepCredentials = false;
 keepCredentials = JSON.parse(localStorage.getItem('keepCred'));
 checkbox.checked = keepCredentials;
 
+inputPassword.addEventListener('keydown', function (e) {
+    if (e.keyCode === 13) {
+        login();
+    }
+});
+
+
 function loading() {
     keepCredentials = checkbox.checked;
 

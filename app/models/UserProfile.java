@@ -6,12 +6,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Gebruiker {
+public class UserProfile {
 
-    public Gebruiker() {
+    public UserProfile() {
     }
 
-    public Gebruiker(String firstname, String lastname, String email, String password) {
+    public UserProfile(String firstname, String lastname, String email, String password) {
         this.setFirstname(firstname);
         this.setLastname(lastname);
         this.setEmail(email);

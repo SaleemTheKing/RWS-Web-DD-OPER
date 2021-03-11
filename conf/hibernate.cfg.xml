@@ -12,6 +12,6 @@
         <property name="hibernate.current_session_context_class">thread</property>
 
 
-        <mapping class="models.Gebruiker"/>
+        <mapping class="models.UserProfile"/>
     </session-factory>
 </hibernate-configuration>
